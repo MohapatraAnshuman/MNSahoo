@@ -3,95 +3,159 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Videos — Mohapatra Nilamani Sahoo</title>
-  <meta name="description" content="Video resources and media about Mohapatra Nilamani Sahoo, the legendary Odia litterateur.">
+  <title>Media — Mohapatra Nilamani Sahoo</title>
+  <meta name="description" content="Video resources and media about Mohapatra Nilamani Sahoo.">
+  <meta name="theme-color" content="#0A0A0A">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .search-embed {
-      max-width: 900px;
-      margin: 0 auto 3rem;
-      text-align: center;
-    }
-    .search-embed p {
-      color: var(--text-light);
-      font-style: italic;
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
-    }
-    .yt-search-link {
-      display: inline-block;
-      padding: 0.8rem 2rem;
-      background: #ff0000;
-      color: var(--white) !important;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-      transition: all var(--transition);
-      box-shadow: 0 3px 10px rgba(255, 0, 0, 0.2);
-    }
-    .yt-search-link:hover {
-      background: #cc0000;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3);
-      color: var(--white) !important;
-    }
-    .video-note {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--gold);
-      padding: 1.5rem 2rem;
-      border-radius: 0 8px 8px 0;
-      margin-bottom: 2rem;
-      font-size: 0.95rem;
-      color: var(--text-light);
-    }
-    .video-suggestions {
+    .search-card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 1.5rem;
-      margin-top: 2rem;
     }
-    .suggestion-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.5rem;
+    .search-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all var(--transition);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .search-card:hover {
+      border-color: rgba(212, 175, 55, 0.3);
+      box-shadow: 0 8px 40px var(--shadow-gold);
+      transform: translateY(-6px);
+    }
+    .search-card-visual {
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .search-card-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 100%, rgba(212,175,55,0.08) 0%, transparent 70%);
+    }
+    .search-card-visual .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+      position: relative;
+    }
+    .search-card-visual .label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--cream);
+      font-weight: 400;
+      position: relative;
+    }
+    .search-card-visual .cta {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      margin-top: 0.5rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      position: relative;
+    }
+    .search-card-body {
+      padding: 1.3rem 1.6rem;
+      border-top: 1px solid var(--glass-border);
+    }
+    .search-card-body h3 {
+      font-size: 1rem;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+      font-weight: 400;
+    }
+    .search-card-body p {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .yt-cta-section {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .yt-cta-section p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--text-dim);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+    .yt-btn {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      background: linear-gradient(135deg, var(--gold), var(--bronze));
+      color: var(--noir) !important;
+      border-radius: 100px;
+      font-weight: 500;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all var(--transition);
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+    }
+    .yt-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+      color: var(--noir) !important;
+    }
+    .note-box {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-left: 2px solid var(--gold);
+      padding: 1.5rem 2rem;
+      border-radius: 0 12px 12px 0;
+      margin-top: 3rem;
+      font-size: 0.88rem;
+      color: var(--text-dim);
+    }
+    .note-box strong { color: var(--cream); }
+    .suggestion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .suggestion-pill {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 1.3rem 1.5rem;
       text-align: center;
       transition: all var(--transition);
+      display: block;
+      text-decoration: none;
     }
-    .suggestion-card:hover {
-      box-shadow: 0 6px 24px var(--shadow-md);
-      transform: translateY(-3px);
+    .suggestion-pill:hover {
+      border-color: rgba(212,175,55,0.3);
+      background: rgba(255,255,255,0.06);
     }
-    .suggestion-card h3 {
-      font-size: 1rem;
-      color: var(--ink);
-      margin-bottom: 0.5rem;
+    .suggestion-pill h3 {
+      font-size: 0.95rem;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+      font-weight: 400;
     }
-    .suggestion-card p {
-      font-size: 0.88rem;
-      color: var(--text-light);
-      margin-bottom: 1rem;
+    .suggestion-pill p {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      margin-bottom: 0.8rem;
     }
-    .suggestion-card a {
-      display: inline-block;
-      padding: 0.4rem 1rem;
-      background: var(--ink);
-      color: var(--gold-light) !important;
-      border-radius: 4px;
-      font-size: 0.82rem;
-      font-weight: 600;
+    .suggestion-pill .pill-cta {
+      font-size: 0.65rem;
+      color: var(--gold);
+      letter-spacing: 2px;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      transition: all var(--transition);
-    }
-    .suggestion-card a:hover {
-      background: var(--gold);
-      color: var(--white) !important;
     }
   </style>
 </head>
@@ -101,10 +165,7 @@
   <header class="site-header">
     <div class="header-inner">
       <div class="site-logo">
-        <a href="index.html">
-          Mohapatra Nilamani Sahoo
-          <span class="subtitle">Videos &amp; Media</span>
-        </a>
+        <a href="index.html">M. N. Sahoo</a>
       </div>
       <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.main-nav').classList.toggle('open')">
         <span></span><span></span><span></span>
@@ -112,10 +173,10 @@
       <nav class="main-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="works.html">Literary Works</a></li>
+          <li><a href="works.html">Works</a></li>
           <li><a href="awards.html">Awards</a></li>
-          <li><a href="contributions.html">Contributions</a></li>
-          <li><a href="videos.html" class="active">Videos</a></li>
+          <li><a href="contributions.html">Legacy</a></li>
+          <li><a href="videos.html" class="active">Media</a></li>
         </ul>
       </nav>
     </div>
@@ -123,169 +184,150 @@
 
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <h1>Videos &amp; Media</h1>
-    <p class="page-subtitle">Watch and discover Mohapatra Nilamani Sahoo through visual media</p>
+    <h1>Media</h1>
+    <p class="page-subtitle">Discover Mohapatra Nilamani Sahoo through visual media</p>
   </section>
 
-  <!-- VIDEO SEARCH TOPICS -->
+  <!-- VIDEO SEARCH CARDS -->
   <section class="section">
-    <h2 class="section-title">Explore Videos</h2>
+    <h2 class="section-title reveal">Explore Videos</h2>
     <hr class="section-divider">
-    <p class="section-subtitle">Discover video content related to Mohapatra Nilamani Sahoo and his literary world</p>
+    <p class="section-subtitle reveal">Curated searches into the world of Mohapatra Nilamani Sahoo</p>
 
-    <div class="videos-grid">
+    <div class="search-card-grid">
 
-      <a class="video-card" href="https://www.youtube.com/results?search_query=Mohapatra+Nilamani+Sahoo" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-        <div class="video-embed" style="padding-bottom:0; height:auto;">
-          <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 3rem 2rem; text-align:center;">
-            <div style="font-size: 3rem; margin-bottom: 0.8rem;">&#128214;</div>
-            <div style="color: var(--gold-light); font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700;">Mohapatra Nilamani Sahoo</div>
-            <div style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 0.3rem;">Search on YouTube &#9654;</div>
-          </div>
+      <a class="search-card reveal" href="https://www.youtube.com/results?search_query=Mohapatra+Nilamani+Sahoo" target="_blank" rel="noopener noreferrer">
+        <div class="search-card-visual">
+          <span class="icon">&#128214;</span>
+          <div class="label">Mohapatra Nilamani Sahoo</div>
+          <div class="cta">Search on YouTube &#8594;</div>
         </div>
-        <div class="video-info">
-          <h3>Mohapatra Nilamani Sahoo</h3>
-          <p>Videos, tributes, and content about the legendary Odia litterateur and Sahitya Akademi Award winner.</p>
+        <div class="search-card-body">
+          <h3>The Litterateur</h3>
+          <p>Videos, tributes, and content about the legendary Odia writer and Sahitya Akademi Award winner.</p>
         </div>
       </a>
 
-      <a class="video-card" href="https://www.youtube.com/results?search_query=Guruprasad+Mohapatra+IAS+DPIIT" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-        <div class="video-embed" style="padding-bottom:0; height:auto;">
-          <div style="background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%); padding: 3rem 2rem; text-align:center;">
-            <div style="font-size: 3rem; margin-bottom: 0.8rem;">&#127942;</div>
-            <div style="color: var(--gold-light); font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700;">Guruprasad Mohapatra</div>
-            <div style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 0.3rem;">Search on YouTube &#9654;</div>
-          </div>
+      <a class="search-card reveal" href="https://www.youtube.com/results?search_query=Guruprasad+Mohapatra+IAS+DPIIT" target="_blank" rel="noopener noreferrer">
+        <div class="search-card-visual">
+          <span class="icon">&#127942;</span>
+          <div class="label">Guruprasad Mohapatra</div>
+          <div class="cta">Search on YouTube &#8594;</div>
         </div>
-        <div class="video-info">
-          <h3>Guruprasad Mohapatra &mdash; A Son's Legacy</h3>
+        <div class="search-card-body">
+          <h3>A Son's Legacy</h3>
           <p>IAS officer, DPIIT Secretary, Padma Shri awardee &mdash; who translated his father's stories into English.</p>
         </div>
       </a>
 
-      <a class="video-card" href="https://www.youtube.com/results?search_query=Sahitya+Akademi+Award+Odia+literature" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-        <div class="video-embed" style="padding-bottom:0; height:auto;">
-          <div style="background: linear-gradient(135deg, #8b0000 0%, #a52a2a 100%); padding: 3rem 2rem; text-align:center;">
-            <div style="font-size: 3rem; margin-bottom: 0.8rem;">&#127894;</div>
-            <div style="color: var(--gold-pale); font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700;">Sahitya Akademi Award</div>
-            <div style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 0.3rem;">Search on YouTube &#9654;</div>
-          </div>
+      <a class="search-card reveal" href="https://www.youtube.com/results?search_query=Sahitya+Akademi+Award+Odia+literature" target="_blank" rel="noopener noreferrer">
+        <div class="search-card-visual">
+          <span class="icon">&#127894;</span>
+          <div class="label">Sahitya Akademi Award</div>
+          <div class="cta">Search on YouTube &#8594;</div>
         </div>
-        <div class="video-info">
-          <h3>Sahitya Akademi Award &mdash; Odia Literature</h3>
-          <p>Explore India's premier literary award and its Odia laureates, including Sahoo's 1984 win for <em>Abhisapta Gandharba</em>.</p>
+        <div class="search-card-body">
+          <h3>India's Premier Literary Honour</h3>
+          <p>Explore the award Sahoo won in 1984 for <em>Abhisapta Gandharba</em>.</p>
         </div>
       </a>
 
-      <a class="video-card" href="https://www.youtube.com/results?search_query=Odia+short+stories+classic+literature" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-        <div class="video-embed" style="padding-bottom:0; height:auto;">
-          <div style="background: linear-gradient(135deg, #2d2d44 0%, #1a1a2e 100%); padding: 3rem 2rem; text-align:center;">
-            <div style="font-size: 3rem; margin-bottom: 0.8rem;">&#128220;</div>
-            <div style="color: var(--gold-light); font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700;">Odia Short Stories</div>
-            <div style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 0.3rem;">Search on YouTube &#9654;</div>
-          </div>
+      <a class="search-card reveal" href="https://www.youtube.com/results?search_query=Odia+short+stories+classic+literature" target="_blank" rel="noopener noreferrer">
+        <div class="search-card-visual">
+          <span class="icon">&#128220;</span>
+          <div class="label">Odia Short Stories</div>
+          <div class="cta">Search on YouTube &#8594;</div>
         </div>
-        <div class="video-info">
-          <h3>Classic Odia Short Stories</h3>
-          <p>Readings, analyses, and discussions of classic Odia short fiction &mdash; the genre Sahoo mastered.</p>
+        <div class="search-card-body">
+          <h3>The Genre He Mastered</h3>
+          <p>Readings, analyses, and discussions of classic Odia short fiction.</p>
         </div>
       </a>
 
-      <a class="video-card" href="https://www.youtube.com/results?search_query=Sri+Aurobindo+Savitri+poem+reading" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-        <div class="video-embed" style="padding-bottom:0; height:auto;">
-          <div style="background: linear-gradient(135deg, #b8860b 0%, #d4a84b 100%); padding: 3rem 2rem; text-align:center;">
-            <div style="font-size: 3rem; margin-bottom: 0.8rem;">&#128588;</div>
-            <div style="color: var(--white); font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700;">Sri Aurobindo's Savitri</div>
-            <div style="color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-top: 0.3rem;">Search on YouTube &#9654;</div>
-          </div>
+      <a class="search-card reveal" href="https://www.youtube.com/results?search_query=Sri+Aurobindo+Savitri+poem+reading" target="_blank" rel="noopener noreferrer">
+        <div class="search-card-visual">
+          <span class="icon">&#128588;</span>
+          <div class="label">Sri Aurobindo's Savitri</div>
+          <div class="cta">Search on YouTube &#8594;</div>
         </div>
-        <div class="video-info">
-          <h3>Sri Aurobindo's Savitri</h3>
-          <p>Explore the epic poem that Sahoo translated into Odia &mdash; one of his greatest literary undertakings.</p>
+        <div class="search-card-body">
+          <h3>The Epic He Translated</h3>
+          <p>Explore the monumental poem Sahoo brought to Odia readers.</p>
         </div>
       </a>
 
-      <a class="video-card" href="https://www.youtube.com/results?search_query=Ravenshaw+University+Cuttack+Odisha" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-        <div class="video-embed" style="padding-bottom:0; height:auto;">
-          <div style="background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%); padding: 3rem 2rem; text-align:center;">
-            <div style="font-size: 3rem; margin-bottom: 0.8rem;">&#127979;</div>
-            <div style="color: var(--gold-light); font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700;">Ravenshaw University</div>
-            <div style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 0.3rem;">Search on YouTube &#9654;</div>
-          </div>
+      <a class="search-card reveal" href="https://www.youtube.com/results?search_query=Ravenshaw+University+Cuttack+Odisha" target="_blank" rel="noopener noreferrer">
+        <div class="search-card-visual">
+          <span class="icon">&#127979;</span>
+          <div class="label">Ravenshaw University</div>
+          <div class="cta">Search on YouTube &#8594;</div>
         </div>
-        <div class="video-info">
-          <h3>Ravenshaw University, Cuttack</h3>
-          <p>Discover the rich history of Sahoo's alma mater &mdash; one of Odisha's oldest and most prestigious institutions.</p>
+        <div class="search-card-body">
+          <h3>His Alma Mater</h3>
+          <p>Discover the rich history of one of Odisha's oldest and most prestigious institutions.</p>
         </div>
       </a>
 
     </div>
   </section>
 
-  <!-- DIRECT YOUTUBE SEARCH -->
-  <section class="section" style="background: var(--parchment-dark); max-width: 100%; padding: 4rem 2rem;">
-    <div style="max-width: 1100px; margin: 0 auto;">
-      <h2 class="section-title">Discover More on YouTube</h2>
+  <!-- DISCOVER MORE -->
+  <div class="section-dark">
+    <div class="inner">
+      <h2 class="section-title reveal">Discover More</h2>
       <hr class="section-divider">
 
-      <div class="search-embed">
+      <div class="yt-cta-section reveal">
         <p>Search YouTube directly for more videos about Mohapatra Nilamani Sahoo, his literary works,
            interviews, lectures, and related content.</p>
         <a href="https://www.youtube.com/results?search_query=Mohapatra+Nilamani+Sahoo+Odia+writer"
-           target="_blank" rel="noopener noreferrer"
-           class="yt-search-link">
-          &#9654; Search YouTube for Mohapatra Nilamani Sahoo
+           target="_blank" rel="noopener noreferrer" class="yt-btn">
+          &#9654;&ensp;Search YouTube
         </a>
       </div>
 
-      <div class="video-note">
+      <div class="note-box reveal">
         <strong>Note:</strong> As a literary figure of the pre-digital era (active 1952&ndash;2016),
         video content about Mohapatra Nilamani Sahoo may be limited. We encourage family members,
-        literary institutions, and admirers to share recordings of his lectures, interviews, and
-        events to help preserve his legacy for future generations.
+        literary institutions, and admirers to share recordings to help preserve his legacy.
       </div>
 
-      <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--ink);">Suggested Searches</h3>
-      <div class="video-suggestions">
-        <div class="suggestion-card">
+      <h3 class="section-title reveal" style="font-size:1.5rem; margin-top:4rem;">Suggested Searches</h3>
+      <hr class="section-divider">
+      <div class="suggestion-grid" style="margin-top:2rem;">
+        <a class="suggestion-pill reveal" href="https://www.youtube.com/results?search_query=Odia+Sahitya+Akademi+Award" target="_blank" rel="noopener noreferrer">
           <h3>Odia Sahitya Akademi</h3>
-          <p>Explore the world of Odia literary awards and laureates</p>
-          <a href="https://www.youtube.com/results?search_query=Odia+Sahitya+Akademi+Award"
-             target="_blank" rel="noopener noreferrer">Search YouTube</a>
-        </div>
-        <div class="suggestion-card">
+          <p>Odia literary awards and laureates</p>
+          <span class="pill-cta">Search &#8594;</span>
+        </a>
+        <a class="suggestion-pill reveal" href="https://www.youtube.com/results?search_query=Odia+short+stories+classic" target="_blank" rel="noopener noreferrer">
           <h3>Odia Short Stories</h3>
-          <p>Listen to and explore Odia short story readings and analyses</p>
-          <a href="https://www.youtube.com/results?search_query=Odia+short+stories+classic"
-             target="_blank" rel="noopener noreferrer">Search YouTube</a>
-        </div>
-        <div class="suggestion-card">
-          <h3>Ravenshaw College Legacy</h3>
-          <p>Discover the rich history of his alma mater</p>
-          <a href="https://www.youtube.com/results?search_query=Ravenshaw+College+Cuttack+history"
-             target="_blank" rel="noopener noreferrer">Search YouTube</a>
-        </div>
-        <div class="suggestion-card">
+          <p>Classic Odia short story readings</p>
+          <span class="pill-cta">Search &#8594;</span>
+        </a>
+        <a class="suggestion-pill reveal" href="https://www.youtube.com/results?search_query=Ravenshaw+College+Cuttack+history" target="_blank" rel="noopener noreferrer">
+          <h3>Ravenshaw College</h3>
+          <p>History of his alma mater</p>
+          <span class="pill-cta">Search &#8594;</span>
+        </a>
+        <a class="suggestion-pill reveal" href="https://www.youtube.com/results?search_query=Odia+literature+history+heritage" target="_blank" rel="noopener noreferrer">
           <h3>Odia Literary Heritage</h3>
-          <p>Explore the broader tradition of Odia literature and culture</p>
-          <a href="https://www.youtube.com/results?search_query=Odia+literature+history+heritage"
-             target="_blank" rel="noopener noreferrer">Search YouTube</a>
-        </div>
-        <div class="suggestion-card">
+          <p>Tradition of Odia literature</p>
+          <span class="pill-cta">Search &#8594;</span>
+        </a>
+        <a class="suggestion-pill reveal" href="https://www.youtube.com/results?search_query=Sri+Aurobindo+Savitri+poem" target="_blank" rel="noopener noreferrer">
           <h3>Sri Aurobindo Savitri</h3>
-          <p>Explore Savitri, the epic poem he translated into Odia</p>
-          <a href="https://www.youtube.com/results?search_query=Sri+Aurobindo+Savitri+poem"
-             target="_blank" rel="noopener noreferrer">Search YouTube</a>
-        </div>
-        <div class="suggestion-card">
+          <p>The epic poem he translated</p>
+          <span class="pill-cta">Search &#8594;</span>
+        </a>
+        <a class="suggestion-pill reveal" href="https://www.youtube.com/results?search_query=Nilamani+Sahoo+galpa+Odia" target="_blank" rel="noopener noreferrer">
           <h3>Nilamani Sahoo Galpa</h3>
-          <p>Search for story readings in Odia language</p>
-          <a href="https://www.youtube.com/results?search_query=Nilamani+Sahoo+galpa+Odia"
-             target="_blank" rel="noopener noreferrer">Search YouTube</a>
-        </div>
+          <p>Story readings in Odia</p>
+          <span class="pill-cta">Search &#8594;</span>
+        </a>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -293,11 +335,18 @@
       <a href="index.html">Home</a>
       <a href="works.html">Works</a>
       <a href="awards.html">Awards</a>
-      <a href="contributions.html">Contributions</a>
-      <a href="videos.html">Videos</a>
+      <a href="contributions.html">Legacy</a>
+      <a href="videos.html">Media</a>
     </nav>
-    <p>&copy; Tribute to Mohapatra Nilamani Sahoo (1926&ndash;2016). Built with reverence for Odia literature.</p>
+    <p>&copy; Tribute to Mohapatra Nilamani Sahoo (1926&ndash;2016)</p>
   </footer>
 
+  <!-- SCROLL REVEAL -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>

@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Awards &amp; Achievements — Mohapatra Nilamani Sahoo</title>
-  <meta name="description" content="Awards and achievements of Mohapatra Nilamani Sahoo including Sahitya Akademi Award, Sarala Award, and Utkal Ratna.">
+  <meta name="description" content="Awards and achievements of Mohapatra Nilamani Sahoo.">
+  <meta name="theme-color" content="#0A0A0A">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
 
@@ -16,10 +18,7 @@
   <header class="site-header">
     <div class="header-inner">
       <div class="site-logo">
-        <a href="index.html">
-          Mohapatra Nilamani Sahoo
-          <span class="subtitle">Awards &amp; Achievements</span>
-        </a>
+        <a href="index.html">M. N. Sahoo</a>
       </div>
       <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.main-nav').classList.toggle('open')">
         <span></span><span></span><span></span>
@@ -27,10 +26,10 @@
       <nav class="main-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="works.html">Literary Works</a></li>
+          <li><a href="works.html">Works</a></li>
           <li><a href="awards.html" class="active">Awards</a></li>
-          <li><a href="contributions.html">Contributions</a></li>
-          <li><a href="videos.html">Videos</a></li>
+          <li><a href="contributions.html">Legacy</a></li>
+          <li><a href="videos.html">Media</a></li>
         </ul>
       </nav>
     </div>
@@ -44,145 +43,69 @@
 
   <!-- AWARDS -->
   <section class="section">
-    <h2 class="section-title">Literary Awards</h2>
+    <h2 class="section-title reveal">Literary Awards</h2>
     <hr class="section-divider">
-    <p class="section-subtitle">Honours bestowed upon a master storyteller</p>
+    <p class="section-subtitle reveal">Honours bestowed upon a master storyteller</p>
 
-    <div class="awards-timeline">
+    <div class="data-source-note">
+      <span class="data-badge">&#128202; Data-driven</span>
+      Content loaded from external spreadsheet &mdash;
+      <label for="xlsx-upload" class="upload-link">upload updated .xlsx to refresh</label>
+      <input type="file" id="xlsx-upload" accept=".xlsx,.xls,.csv" style="display:none;">
+    </div>
 
-      <div class="award-item">
-        <div class="award-year-badge">1979</div>
-        <div class="award-content">
-          <h3>Odisha Sahitya Academy Award</h3>
-          <p class="award-for">For <em>Akasha Patala</em> ("Heaven and Hell")</p>
-          <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-light);">
-            The premier literary award of the Odisha state, recognising excellence in Odia literature.
-            <em>Akasha Patala</em> was celebrated for its profound exploration of the human condition
-            through masterful short fiction.
-          </p>
-        </div>
+    <div class="awards-timeline" id="awards-timeline">
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading awards&hellip;</p>
       </div>
-
-      <div class="award-item">
-        <div class="award-year-badge">1983</div>
-        <div class="award-content">
-          <h3>Sarala Award</h3>
-          <p class="award-for">For <em>Abhisapta Gandharba</em> ("The Cursed Gandharva")</p>
-          <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-light);">
-            Named after the legendary 15th-century Odia poet Sarala Das, this prestigious award
-            honours outstanding contributions to Odia literature. The collection went on to win
-            the national Sahitya Akademi Award the following year.
-          </p>
-        </div>
-      </div>
-
-      <div class="award-item">
-        <div class="award-year-badge">1984</div>
-        <div class="award-content">
-          <h3>Sahitya Akademi Award (Odia)</h3>
-          <p class="award-for">For <em>Abhisapta Gandharba</em> ("The Cursed Gandharva")</p>
-          <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-light);">
-            India's national academy of letters honoured Sahoo with its highest literary distinction for
-            Odia literature. The Sahitya Akademi Award is considered one of the most prestigious literary
-            honours in India, recognising the finest works in each of the 24 languages it covers.
-          </p>
-        </div>
-      </div>
-
-      <div class="award-item">
-        <div class="award-year-badge">2001</div>
-        <div class="award-content">
-          <h3>Kanta Kabi Award</h3>
-          <p class="award-for">For overall literary contribution</p>
-          <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-light);">
-            A recognition of his sustained and exceptional contribution to the world of Odia letters
-            over five decades of prolific writing.
-          </p>
-        </div>
-      </div>
-
-      <div class="award-item">
-        <div class="award-year-badge">2006</div>
-        <div class="award-content">
-          <h3>Sahitya Bharati Award</h3>
-          <p class="award-for">For overall literary contribution</p>
-          <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-light);">
-            Honouring his role in enriching Indian literature through Odia language and his
-            enduring impact on the literary landscape of the nation.
-          </p>
-        </div>
-      </div>
-
-      <div class="award-item">
-        <div class="award-year-badge">2013</div>
-        <div class="award-content">
-          <h3>Utkal Ratna Award</h3>
-          <p class="award-for">For overall literary contribution</p>
-          <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-light);">
-            "Jewel of Utkal" &mdash; one of Odisha's highest civilian honours, recognising his
-            extraordinary service to Odia culture and literature over a career spanning six decades.
-          </p>
-        </div>
-      </div>
-
     </div>
   </section>
 
   <!-- OTHER ACHIEVEMENTS -->
-  <section class="section" style="background: var(--parchment-dark); max-width: 100%; padding: 4rem 2rem;">
-    <div style="max-width: 1100px; margin: 0 auto;">
-      <h2 class="section-title">Other Distinctions</h2>
+  <div class="section-dark">
+    <div class="inner">
+      <h2 class="section-title reveal">Other Distinctions</h2>
       <hr class="section-divider">
 
       <div class="contrib-grid">
-        <div class="contrib-card">
+        <div class="contrib-card reveal">
           <span class="contrib-icon">&#127909;</span>
           <h3>National Film Awards</h3>
-          <p>Two films based on his short stories received National Film Awards, bringing his literary
-             vision to the screen and earning recognition at India's highest film honour.</p>
+          <p>Two films based on his short stories received National Film Awards, bringing his literary vision to the screen.</p>
         </div>
-
-        <div class="contrib-card">
+        <div class="contrib-card reveal">
           <span class="contrib-icon">&#128214;</span>
           <h3>55+ Published Works</h3>
-          <p>A prolific output of over 55 published titles spanning short stories, novels, literary
-             criticism, essays, translations, spiritual writings, poetry, and plays.</p>
+          <p>A prolific output spanning short stories, novels, literary criticism, essays, translations, and spiritual writings.</p>
         </div>
-
-        <div class="contrib-card">
+        <div class="contrib-card reveal">
           <span class="contrib-icon">&#127760;</span>
           <h3>Works Translated Internationally</h3>
-          <p><em>Abhisapta Gandharba</em> was translated into Hindi (1992), and his best stories were
-             translated into English by his son Guruprasad Mohapatra (Sahitya Akademi, 2021).</p>
+          <p><em>Abhisapta Gandharba</em> translated into Hindi (1992), and best stories into English (Sahitya Akademi, 2021).</p>
         </div>
-
-        <div class="contrib-card">
+        <div class="contrib-card reveal">
           <span class="contrib-icon">&#128218;</span>
           <h3>Biographical Study Published</h3>
-          <p>A critical and biographical study titled <em>Sahityasadhak Mohapatra Nilamani Sahoo</em>
-             has been published, cementing his place in the scholarly study of Odia literature.</p>
+          <p><em>Sahityasadhak Mohapatra Nilamani Sahoo</em> — a critical and biographical study cementing his scholarly legacy.</p>
         </div>
-
-        <div class="contrib-card">
+        <div class="contrib-card reveal">
           <span class="contrib-icon">&#128220;</span>
           <h3>4-Volume Collected Works</h3>
-          <p>His complete literary output was compiled into <em>Mohapatra Nilamani Sahoo Rachana Samagra</em>,
-             a definitive 4-volume edition preserving his legacy for future generations.</p>
+          <p><em>Mohapatra Nilamani Sahoo Rachana Samagra</em> — the definitive compendium preserving his output for future generations.</p>
         </div>
-
-        <div class="contrib-card">
+        <div class="contrib-card reveal">
           <span class="contrib-icon">&#127942;</span>
-          <h3>Son Awarded Padma Shri (2022)</h3>
-          <p>His son Guruprasad Mohapatra, who translated his stories into English, was posthumously
-             awarded the Padma Shri in 2022 &mdash; a testament to the family's enduring legacy of service.</p>
+          <h3>Son Awarded Padma Shri</h3>
+          <p>Guruprasad Mohapatra posthumously awarded the Padma Shri in 2022 — a testament to the family's enduring legacy.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- QUOTE -->
   <section class="section">
-    <div class="quote-block">
+    <div class="quote-block reveal">
       <blockquote>
         From the Odisha Sahitya Academy Award to the Utkal Ratna, each honour recognised
         not merely individual works but a lifetime spent illuminating the Odia literary tradition
@@ -198,11 +121,70 @@
       <a href="index.html">Home</a>
       <a href="works.html">Works</a>
       <a href="awards.html">Awards</a>
-      <a href="contributions.html">Contributions</a>
-      <a href="videos.html">Videos</a>
+      <a href="contributions.html">Legacy</a>
+      <a href="videos.html">Media</a>
     </nav>
-    <p>&copy; Tribute to Mohapatra Nilamani Sahoo (1926&ndash;2016). Built with reverence for Odia literature.</p>
+    <p>&copy; Tribute to Mohapatra Nilamani Sahoo (1926&ndash;2016)</p>
   </footer>
 
+  <script>
+    function renderAward(item) {
+      const desc = item.description ? `<p style="margin-top:0.6rem;font-size:0.88rem;color:var(--text-dim);">${item.description}</p>` : '';
+      const presenter = item.presentedBy ? `<p style="font-size:0.72rem;color:var(--gold-dim);margin-top:0.5rem;letter-spacing:1.5px;text-transform:uppercase;">${item.presentedBy}</p>` : '';
+      return `
+        <div class="award-item reveal">
+          <div class="award-year-badge">${item.year}</div>
+          <div class="award-content">
+            <h3>${item.award}</h3>
+            <p class="award-for">${item.awardedFor}</p>
+            ${presenter}${desc}
+          </div>
+        </div>`;
+    }
+
+    function renderAwards(data) {
+      const sorted = [...data].sort((a, b) => parseInt(a.year) - parseInt(b.year));
+      document.getElementById('awards-timeline').innerHTML = sorted.map(renderAward).join('');
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
+
+    function parseXLSX(ab) {
+      const wb = XLSX.read(ab, { type: 'array' });
+      return XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]).map(r => ({
+        year: r['Year'] != null ? String(r['Year']) : '', award: r['Award Name'] || r['Award'] || '',
+        awardedFor: r['Awarded For'] || '', presentedBy: r['Presented By'] || '', description: r['Description'] || '',
+      }));
+    }
+
+    document.getElementById('xlsx-upload').addEventListener('change', async function(e) {
+      const file = e.target.files[0]; if (!file) return;
+      try { renderAwards(parseXLSX(await file.arrayBuffer())); showToast(`Loaded ${file.name}`); }
+      catch (err) { showToast('Error: ' + err.message, true); }
+    });
+
+    function showToast(msg, isError) {
+      const t = document.createElement('div');
+      t.className = 'toast' + (isError ? ' toast-error' : '');
+      t.textContent = msg; document.body.appendChild(t);
+      setTimeout(() => t.classList.add('show'), 10);
+      setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 3000);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    (async function() {
+      try {
+        let data;
+        try { const r = await fetch('awards.xlsx'); if (!r.ok) throw 0; data = parseXLSX(await r.arrayBuffer()); }
+        catch { data = await (await fetch('data/awards.json')).json(); }
+        renderAwards(data);
+      } catch (err) {
+        document.getElementById('awards-timeline').innerHTML = `<p style="text-align:center;color:var(--accent);">Unable to load awards.</p>`;
+      }
+    })();
+  </script>
 </body>
 </html>
