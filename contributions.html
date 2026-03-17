@@ -10,7 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
 
@@ -39,16 +38,6 @@
   <section class="page-hero">
     <h1>Contributions &amp; Legacy</h1>
     <p class="page-subtitle">Beyond the written word &mdash; his service to education, culture, and society</p>
-  </section>
-
-  <!-- DATA SOURCE NOTE -->
-  <section class="section" style="padding-bottom: 0;">
-    <div class="data-source-note">
-      <span class="data-badge">&#128202; Data-driven</span>
-      Content loaded from external spreadsheet &mdash;
-      <label for="xlsx-upload" class="upload-link">upload updated .xlsx to refresh</label>
-      <input type="file" id="xlsx-upload" accept=".xlsx,.xls,.csv" style="display:none;">
-    </div>
   </section>
 
   <!-- DYNAMIC CONTRIBUTIONS CONTENT -->
@@ -115,27 +104,6 @@
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     }
 
-    function parseXLSX(ab) {
-      const wb = XLSX.read(ab, { type: 'array' });
-      return XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]).map(r => ({
-        category: r['Category'] || '', title: r['Title'] || '', description: r['Description'] || '', icon: r['Icon'] || '',
-      }));
-    }
-
-    document.getElementById('xlsx-upload').addEventListener('change', async function(e) {
-      const file = e.target.files[0]; if (!file) return;
-      try { renderAll(parseXLSX(await file.arrayBuffer())); showToast(`Loaded ${file.name}`); }
-      catch (err) { showToast('Error: ' + err.message, true); }
-    });
-
-    function showToast(msg, isError) {
-      const t = document.createElement('div');
-      t.className = 'toast' + (isError ? ' toast-error' : '');
-      t.textContent = msg; document.body.appendChild(t);
-      setTimeout(() => t.classList.add('show'), 10);
-      setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 3000);
-    }
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
@@ -143,10 +111,9 @@
 
     (async function() {
       try {
-        let data;
-        try { const r = await fetch('contributions.xlsx'); if (!r.ok) throw 0; data = parseXLSX(await r.arrayBuffer()); }
-        catch { data = await (await fetch('data/contributions.json')).json(); }
-        renderAll(data);
+        const resp = await fetch('data/contributions.json');
+        if (!resp.ok) throw new Error('Failed to load contributions data');
+        renderAll(await resp.json());
       } catch (err) {
         document.getElementById('contributions-content').innerHTML = `<div class="section"><p style="text-align:center;color:var(--accent);">Unable to load contributions data.</p></div>`;
       }
