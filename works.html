@@ -10,7 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
 
@@ -50,12 +49,6 @@
       His complete stories are published as <em>Galpa Samagra</em> and his collected works span 4 volumes.
     </div>
 
-    <div class="data-source-note">
-      <span class="data-badge">&#128202; Data-driven</span>
-      Content loaded from external spreadsheet &mdash;
-      <label for="xlsx-upload" class="upload-link">upload updated .xlsx to refresh</label>
-      <input type="file" id="xlsx-upload" accept=".xlsx,.xls,.csv" style="display:none;">
-    </div>
   </section>
 
   <!-- DYNAMIC WORKS CONTENT -->
@@ -147,45 +140,11 @@
       document.getElementById('works-content').innerHTML = catOrder.map(cat => renderCategory(cat, groups[cat])).join('');
     }
 
-    async function loadFromJSON() {
-      const resp = await fetch('data/works.json');
-      if (!resp.ok) throw new Error('JSON fetch failed');
-      return resp.json();
-    }
-
-    function parseXLSX(ab) {
-      const wb = XLSX.read(ab, { type: 'array' });
-      const ws = wb.Sheets[wb.SheetNames[0]];
-      return XLSX.utils.sheet_to_json(ws).map(r => ({
-        category: r['Category'] || '', title: r['Title'] || '',
-        year: r['Year'] != null ? String(r['Year']) : '', description: r['Description'] || '',
-      }));
-    }
-
-    document.getElementById('xlsx-upload').addEventListener('change', async function(e) {
-      const file = e.target.files[0];
-      if (!file) return;
-      try {
-        renderAll(parseXLSX(await file.arrayBuffer()));
-        showToast(`Loaded ${file.name}`);
-      } catch (err) { showToast('Error: ' + err.message, true); }
-    });
-
-    function showToast(msg, isError) {
-      const t = document.createElement('div');
-      t.className = 'toast' + (isError ? ' toast-error' : '');
-      t.textContent = msg;
-      document.body.appendChild(t);
-      setTimeout(() => t.classList.add('show'), 10);
-      setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 3000);
-    }
-
     (async function() {
       try {
-        let data;
-        try { const r = await fetch('literary_works.xlsx'); if (!r.ok) throw 0; data = parseXLSX(await r.arrayBuffer()); }
-        catch { data = await loadFromJSON(); }
-        renderAll(data);
+        const resp = await fetch('data/works.json');
+        if (!resp.ok) throw new Error('Failed to load works data');
+        renderAll(await resp.json());
       } catch (err) {
         document.getElementById('works-content').innerHTML = `<div class="section"><p style="text-align:center;color:var(--accent);">Unable to load works data.</p></div>`;
       }
