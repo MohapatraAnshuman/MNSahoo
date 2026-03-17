@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contributions &amp; Legacy — Mohapatra Nilamani Sahoo</title>
-  <meta name="description" content="Educational, editorial, spiritual, and cultural contributions of Mohapatra Nilamani Sahoo to Odia society.">
+  <meta name="description" content="Contributions and legacy of Mohapatra Nilamani Sahoo.">
+  <meta name="theme-color" content="#0A0A0A">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
 
@@ -16,10 +18,7 @@
   <header class="site-header">
     <div class="header-inner">
       <div class="site-logo">
-        <a href="index.html">
-          Mohapatra Nilamani Sahoo
-          <span class="subtitle">Contributions &amp; Legacy</span>
-        </a>
+        <a href="index.html">M. N. Sahoo</a>
       </div>
       <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.main-nav').classList.toggle('open')">
         <span></span><span></span><span></span>
@@ -27,10 +26,10 @@
       <nav class="main-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="works.html">Literary Works</a></li>
+          <li><a href="works.html">Works</a></li>
           <li><a href="awards.html">Awards</a></li>
-          <li><a href="contributions.html" class="active">Contributions</a></li>
-          <li><a href="videos.html">Videos</a></li>
+          <li><a href="contributions.html" class="active">Legacy</a></li>
+          <li><a href="videos.html">Media</a></li>
         </ul>
       </nav>
     </div>
@@ -42,156 +41,27 @@
     <p class="page-subtitle">Beyond the written word &mdash; his service to education, culture, and society</p>
   </section>
 
-  <!-- EDUCATIONAL CONTRIBUTIONS -->
-  <section class="section">
-    <h2 class="section-title">Educational Service</h2>
-    <hr class="section-divider">
-    <p class="section-subtitle">A lifelong educator who shaped generations of Odia students</p>
-
-    <div class="contrib-grid">
-      <div class="contrib-card">
-        <span class="contrib-icon">&#127979;</span>
-        <h3>Academic Career</h3>
-        <p>Served as Librarian at Sambalpur University, Lecturer of Odia at Bhadrak College and
-           Paralakhemundi Government College, and rose to become Vice-Principal and Principal of
-           BJB Evening College, Bhubaneswar. His career in education spanned decades, touching
-           the lives of countless students.</p>
-      </div>
-
-      <div class="contrib-card">
-        <span class="contrib-icon">&#128218;</span>
-        <h3>Ravenshaw College Legacy</h3>
-        <p>A graduate and post-graduate of the prestigious Ravenshaw College, Cuttack &mdash;
-           one of Odisha's oldest and most respected institutions. He specialised in Odia language
-           and literature, building the academic foundation for his towering literary career.</p>
-      </div>
-
-      <div class="contrib-card">
-        <span class="contrib-icon">&#127891;</span>
-        <h3>Mentoring Future Writers</h3>
-        <p>As a professor and principal, he mentored generations of students and aspiring writers,
-           passing on his deep understanding of Odia literary traditions and encouraging new voices
-           in the language.</p>
-      </div>
+  <!-- DATA SOURCE NOTE -->
+  <section class="section" style="padding-bottom: 0;">
+    <div class="data-source-note">
+      <span class="data-badge">&#128202; Data-driven</span>
+      Content loaded from external spreadsheet &mdash;
+      <label for="xlsx-upload" class="upload-link">upload updated .xlsx to refresh</label>
+      <input type="file" id="xlsx-upload" accept=".xlsx,.xls,.csv" style="display:none;">
     </div>
   </section>
 
-  <!-- EDITORIAL CONTRIBUTIONS -->
-  <section class="section" style="background: var(--parchment-dark); max-width: 100%; padding: 4rem 2rem;">
-    <div style="max-width: 1100px; margin: 0 auto;">
-      <h2 class="section-title">Editorial Leadership</h2>
-      <hr class="section-divider">
-      <p class="section-subtitle">Shaping Odia literary discourse through editorial vision</p>
-
-      <div class="contrib-grid">
-        <div class="contrib-card">
-          <span class="contrib-icon">&#128240;</span>
-          <h3>Jhankara Magazine (1965&ndash;1969)</h3>
-          <p>As editor and writer of <em>Jhankara</em>, he used this literary magazine as a platform
-             to publish philosophical essays on Sri Aurobindo and promote serious literary discourse
-             in Odia. The magazine became a vital space for Odia intellectual life under his guidance.</p>
-        </div>
-
-        <div class="contrib-card">
-          <span class="contrib-icon">&#128196;</span>
-          <h3>Utkala Prasanga &amp; Orissa Review (1975&ndash;1978)</h3>
-          <p>He edited two influential periodicals &mdash; <em>Utkala Prasanga</em> and <em>Orissa Review</em>
-             &mdash; that played a significant role in documenting Odisha's cultural, literary, and
-             socio-political landscape during a formative period in the state's modern history.</p>
-        </div>
-
-        <div class="contrib-card">
-          <span class="contrib-icon">&#9997;</span>
-          <h3>Champion of Odia Literature</h3>
-          <p>Through his editorial work, he provided a platform for emerging Odia writers and
-             fostered literary criticism, helping to elevate the standards of Odia literature and
-             bring it wider recognition within India's diverse literary landscape.</p>
-        </div>
-      </div>
+  <!-- DYNAMIC CONTRIBUTIONS CONTENT -->
+  <div id="contributions-content">
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+      <p>Loading contributions&hellip;</p>
     </div>
-  </section>
-
-  <!-- SPIRITUAL & PHILOSOPHICAL CONTRIBUTIONS -->
-  <section class="section">
-    <h2 class="section-title">Spiritual &amp; Philosophical Contributions</h2>
-    <hr class="section-divider">
-    <p class="section-subtitle">Bridging literature, philosophy, and the spiritual traditions of India</p>
-
-    <div class="contrib-grid">
-      <div class="contrib-card">
-        <span class="contrib-icon">&#128220;</span>
-        <h3>Translator of Sri Aurobindo's <em>Savitri</em></h3>
-        <p>He undertook the monumental task of translating Sri Aurobindo's epic poem
-           <em>Savitri: A Legend and a Symbol</em> into Odia, making this foundational
-           spiritual text accessible to Odia readers. This was one of the most significant
-           translation projects in modern Odia literary history.</p>
-      </div>
-
-      <div class="contrib-card">
-        <span class="contrib-icon">&#128588;</span>
-        <h3>Philosophical Lectures</h3>
-        <p>He was a renowned speaker who delivered talks and lectures on the philosophies of
-           Sri Aurobindo, Ramakrishna Paramhansa, and Swami Vivekananda, bringing these
-           spiritual teachings to wider audiences across Odisha.</p>
-      </div>
-
-      <div class="contrib-card">
-        <span class="contrib-icon">&#128216;</span>
-        <h3>Spiritual Literary Works</h3>
-        <p>His spiritual writings include <em>Chanakya Neeti Ratnamala</em>,
-           <em>Prema Bhaktira Marmakatha</em>, <em>Sanatan Dharmara Sarakatha</em>,
-           and several other works that explored Indian philosophical and spiritual traditions
-           through an Odia literary lens.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CULTURAL IMPACT -->
-  <section class="section" style="background: var(--parchment-dark); max-width: 100%; padding: 4rem 2rem;">
-    <div style="max-width: 1100px; margin: 0 auto;">
-      <h2 class="section-title">Cultural Impact</h2>
-      <hr class="section-divider">
-      <p class="section-subtitle">A lasting imprint on Odia culture and Indian literature</p>
-
-      <div class="contrib-grid">
-        <div class="contrib-card">
-          <span class="contrib-icon">&#127909;</span>
-          <h3>Stories Adapted to Film</h3>
-          <p>Two films based on his short stories received National Film Awards, demonstrating
-             the cinematic power of his storytelling and bringing Odia literature to national
-             audiences through the medium of film.</p>
-        </div>
-
-        <div class="contrib-card">
-          <span class="contrib-icon">&#127917;</span>
-          <h3>Folk Theatre Adaptations</h3>
-          <p>His work <em>Biplobi Bihanga</em> (also known as <em>Bihanga Biplab</em>) has been
-             adapted into folk theatre, keeping Odia theatrical traditions alive and bringing
-             his literary vision to rural audiences.</p>
-        </div>
-
-        <div class="contrib-card">
-          <span class="contrib-icon">&#128101;</span>
-          <h3>Enriching Odia Identity</h3>
-          <p>Works like <em>Ame Kie Ame Odia</em> ("Who Are We? We Are Odia") reflect his
-             deep commitment to Odia identity and culture, celebrating the language and traditions
-             of Odisha for future generations.</p>
-        </div>
-
-        <div class="contrib-card">
-          <span class="contrib-icon">&#128106;</span>
-          <h3>Family Legacy of Service</h3>
-          <p>His son Guruprasad Mohapatra (IAS, Padma Shri 2022) carried forward the family legacy
-             of service &mdash; to the nation as a civil servant, and to literature by translating
-             his father's stories into English, published by Sahitya Akademi in 2021.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
 
   <!-- QUOTE -->
   <section class="section">
-    <div class="quote-block">
+    <div class="quote-block reveal">
       <blockquote>
         Mohapatra Nilamani Sahoo's contributions transcended literature alone. As an educator,
         editor, translator, philosopher, and cultural custodian, he enriched every sphere he touched,
@@ -207,11 +77,80 @@
       <a href="index.html">Home</a>
       <a href="works.html">Works</a>
       <a href="awards.html">Awards</a>
-      <a href="contributions.html">Contributions</a>
-      <a href="videos.html">Videos</a>
+      <a href="contributions.html">Legacy</a>
+      <a href="videos.html">Media</a>
     </nav>
-    <p>&copy; Tribute to Mohapatra Nilamani Sahoo (1926&ndash;2016). Built with reverence for Odia literature.</p>
+    <p>&copy; Tribute to Mohapatra Nilamani Sahoo (1926&ndash;2016)</p>
   </footer>
 
+  <script>
+    const CATEGORY_TITLES = {
+      'Education':         { section: 'Educational Service', subtitle: 'A lifelong educator who shaped generations', dark: false },
+      'Editorial':         { section: 'Editorial Leadership', subtitle: 'Shaping Odia literary discourse through editorial vision', dark: true },
+      'Spiritual':         { section: 'Spiritual & Philosophical', subtitle: 'Bridging literature, philosophy, and spiritual traditions', dark: false },
+      'Cultural':          { section: 'Cultural Impact', subtitle: 'A lasting imprint on Odia culture and Indian literature', dark: true },
+      'Literary Movement': { section: 'Literary Innovation', subtitle: 'Pioneering new forms in Odia storytelling', dark: false },
+    };
+
+    const DEFAULT_ICONS = { 'Education': '&#127979;', 'Editorial': '&#128240;', 'Spiritual': '&#128220;', 'Cultural': '&#127909;', 'Literary Movement': '&#128218;' };
+
+    function renderContribCard(item) {
+      const icon = item.icon || DEFAULT_ICONS[item.category] || '&#128214;';
+      return `<div class="contrib-card reveal"><span class="contrib-icon">${icon}</span><h3>${item.title}</h3><p>${item.description}</p></div>`;
+    }
+
+    function renderContribSection(catName, items, meta) {
+      const title = meta ? meta.section : catName;
+      const subtitle = meta ? meta.subtitle : '';
+      const isDark = meta ? meta.dark : false;
+      let inner = `<h2 class="section-title reveal">${title}</h2><hr class="section-divider">${subtitle ? `<p class="section-subtitle reveal">${subtitle}</p>` : ''}<div class="contrib-grid">${items.map(renderContribCard).join('')}</div>`;
+      if (isDark) return `<div class="section-dark"><div class="inner">${inner}</div></div>`;
+      return `<section class="section">${inner}</section>`;
+    }
+
+    function renderAll(data) {
+      const catOrder = []; const groups = {};
+      data.forEach(item => { if (!groups[item.category]) { groups[item.category] = []; catOrder.push(item.category); } groups[item.category].push(item); });
+      document.getElementById('contributions-content').innerHTML = catOrder.map(cat => renderContribSection(cat, groups[cat], CATEGORY_TITLES[cat])).join('');
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
+
+    function parseXLSX(ab) {
+      const wb = XLSX.read(ab, { type: 'array' });
+      return XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]).map(r => ({
+        category: r['Category'] || '', title: r['Title'] || '', description: r['Description'] || '', icon: r['Icon'] || '',
+      }));
+    }
+
+    document.getElementById('xlsx-upload').addEventListener('change', async function(e) {
+      const file = e.target.files[0]; if (!file) return;
+      try { renderAll(parseXLSX(await file.arrayBuffer())); showToast(`Loaded ${file.name}`); }
+      catch (err) { showToast('Error: ' + err.message, true); }
+    });
+
+    function showToast(msg, isError) {
+      const t = document.createElement('div');
+      t.className = 'toast' + (isError ? ' toast-error' : '');
+      t.textContent = msg; document.body.appendChild(t);
+      setTimeout(() => t.classList.add('show'), 10);
+      setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 3000);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    (async function() {
+      try {
+        let data;
+        try { const r = await fetch('contributions.xlsx'); if (!r.ok) throw 0; data = parseXLSX(await r.arrayBuffer()); }
+        catch { data = await (await fetch('data/contributions.json')).json(); }
+        renderAll(data);
+      } catch (err) {
+        document.getElementById('contributions-content').innerHTML = `<div class="section"><p style="text-align:center;color:var(--accent);">Unable to load contributions data.</p></div>`;
+      }
+    })();
+  </script>
 </body>
 </html>

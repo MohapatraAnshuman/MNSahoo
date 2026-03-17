@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mohapatra Nilamani Sahoo — Legendary Odia Litterateur</title>
   <meta name="description" content="Official tribute website of Mohapatra Nilamani Sahoo (1926–2016), one of the greatest Odia short story writers of post-independence India.">
+  <meta name="theme-color" content="#0A0A0A">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,10 +17,7 @@
   <header class="site-header">
     <div class="header-inner">
       <div class="site-logo">
-        <a href="index.html">
-          Mohapatra Nilamani Sahoo
-          <span class="subtitle">1926 &ndash; 2016</span>
-        </a>
+        <a href="index.html">M. N. Sahoo</a>
       </div>
       <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.main-nav').classList.toggle('open')">
         <span></span><span></span><span></span>
@@ -27,10 +25,10 @@
       <nav class="main-nav">
         <ul>
           <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="works.html">Literary Works</a></li>
+          <li><a href="works.html">Works</a></li>
           <li><a href="awards.html">Awards</a></li>
-          <li><a href="contributions.html">Contributions</a></li>
-          <li><a href="videos.html">Videos</a></li>
+          <li><a href="contributions.html">Legacy</a></li>
+          <li><a href="videos.html">Media</a></li>
         </ul>
       </nav>
     </div>
@@ -38,11 +36,11 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-content">
-      <div class="hero-ornament">&#10044; &#10044; &#10044;</div>
-      <h1>Mohapatra Nilamani Sahoo</h1>
+    <div class="hero-content reveal">
+      <div class="hero-ornament">&#9670; &#9670; &#9670;</div>
+      <h1>Mohapatra<br>Nilamani Sahoo</h1>
       <p class="odia-name">&#x0B2E;&#x0B39;&#x0B3E;&#x0B2A;&#x0B3E;&#x0B24;&#x0B4D;&#x0B30; &#x0B28;&#x0B40;&#x0B33;&#x0B2E;&#x0B23;&#x0B3F; &#x0B38;&#x0B3E;&#x0B39;&#x0B41;</p>
-      <p class="dates">22 December 1926 &mdash; 25 June 2016</p>
+      <p class="dates">1926 &mdash; 2016</p>
       <p class="tagline">
         One of the greatest Odia short story writers of post-independence India,
         whose works explored the subtleties of human emotion through verbal and situational comedy,
@@ -53,7 +51,7 @@
 
   <!-- STATS -->
   <section class="section">
-    <div class="stats-bar">
+    <div class="stats-bar reveal">
       <div class="stat-item">
         <div class="stat-number">55+</div>
         <div class="stat-label">Published Works</div>
@@ -75,12 +73,12 @@
 
   <!-- BIOGRAPHY -->
   <section class="section" id="biography">
-    <h2 class="section-title">Life &amp; Journey</h2>
+    <h2 class="section-title reveal">Life &amp; Journey</h2>
     <hr class="section-divider">
-    <p class="section-subtitle">From a zamindar family in Niali to the summit of Odia literature</p>
+    <p class="section-subtitle reveal">From a zamindar family in Niali to the summit of Odia literature</p>
 
     <div class="bio-grid">
-      <div class="bio-text">
+      <div class="bio-text reveal">
         <p>Mohapatra Nilamani Sahoo was born on 22 December 1926 in Niali, Cuttack District, Odisha, into a
            wealthy zamindar (landlord) family. Despite his aristocratic upbringing, he devoted his life to
            literature, education, and the exploration of human nature through the written word. He completed
@@ -105,7 +103,7 @@
            (1962&ndash;2021), a distinguished IAS officer who translated his father's stories into English.</p>
       </div>
 
-      <div>
+      <div class="reveal">
         <div class="card">
           <table class="info-table">
             <tr><td>Born</td><td>22 December 1926, Niali, Cuttack, Odisha</td></tr>
@@ -123,7 +121,7 @@
 
         <!-- Career Timeline -->
         <div class="card" style="margin-top: 1.5rem;">
-          <h3 style="font-size: 1.15rem; margin-bottom: 1.2rem; color: var(--gold);">Career Timeline</h3>
+          <h3 style="font-size: 1.15rem; margin-bottom: 1.5rem; color: var(--gold); letter-spacing: 1px;">Career Timeline</h3>
           <div class="timeline">
             <div class="timeline-item">
               <div class="timeline-period">Early Career</div>
@@ -162,13 +160,13 @@
   </section>
 
   <!-- LITERARY STYLE -->
-  <section class="section" style="background: var(--parchment-dark); max-width: 100%; padding: 4rem 2rem;">
-    <div style="max-width: 1100px; margin: 0 auto;">
-      <h2 class="section-title">Literary Style</h2>
+  <div class="section-dark">
+    <div class="inner">
+      <h2 class="section-title reveal">Literary Style</h2>
       <hr class="section-divider">
-      <p class="section-subtitle">A master of the human condition</p>
+      <p class="section-subtitle reveal">A master of the human condition</p>
 
-      <ul class="style-list">
+      <ul class="style-list reveal">
         <li>Described the subtleties of human emotion with verbal and situational comedy</li>
         <li>Known for satirising human idiocies with warmth and insight</li>
         <li>Blended realism with romance and existential thought</li>
@@ -179,11 +177,11 @@
         <li>Translated Sri Aurobindo's <em>Savitri</em> into Odia</li>
       </ul>
     </div>
-  </section>
+  </div>
 
   <!-- QUOTE -->
   <section class="section">
-    <div class="quote-block">
+    <div class="quote-block reveal">
       <blockquote>
         His writings explored the interplay between tradition and modernity, capturing the essence of
         Odia life and the universal complexities of human relationships with an unmatched candour
@@ -195,7 +193,7 @@
 
   <!-- SON'S LEGACY -->
   <section class="section">
-    <div class="tribute-box">
+    <div class="tribute-box reveal">
       <h3>A Son's Tribute</h3>
       <p>Guruprasad Mohapatra (22 April 1962 &ndash; 19 June 2021), a 1986-batch Gujarat cadre IAS officer who
          rose to become Secretary of the Department for Promotion of Industry and Internal Trade (DPIIT),
@@ -213,11 +211,24 @@
       <a href="index.html">Home</a>
       <a href="works.html">Works</a>
       <a href="awards.html">Awards</a>
-      <a href="contributions.html">Contributions</a>
-      <a href="videos.html">Videos</a>
+      <a href="contributions.html">Legacy</a>
+      <a href="videos.html">Media</a>
     </nav>
-    <p>&copy; Tribute to Mohapatra Nilamani Sahoo (1926&ndash;2016). Built with reverence for Odia literature.</p>
+    <p>&copy; Tribute to Mohapatra Nilamani Sahoo (1926&ndash;2016)</p>
   </footer>
+
+  <!-- SCROLL REVEAL SCRIPT -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
